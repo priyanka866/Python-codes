@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 #Print function
@@ -16,7 +16,7 @@ a=input("What is your name?")
 print(len(a))
 
 
-# In[22]:
+# In[ ]:
 
 
 #input function
@@ -43,7 +43,7 @@ BMI = weight/height**2
 print("Your BMI is",BMI)
 
 
-# In[62]:
+# In[ ]:
 
 
 #Number of days left until 90 from current age 
@@ -71,7 +71,7 @@ amt_pay1 =  round((bill+(bill*float(tip/100)))/split,2)
 print(f"Each person should pay : {amt_pay1}")
 
 
-# In[6]:
+# In[ ]:
 
 
 #If else statement
@@ -161,7 +161,7 @@ else:
      print(f"Your score is {love_scores}")
 
 
-# In[7]:
+# In[ ]:
 
 
 #treassure game
@@ -213,7 +213,7 @@ else:
     print("Fall into a hole.\n Game Over. ")
 
 
-# In[45]:
+# In[ ]:
 
 
 #Random module
@@ -249,10 +249,7 @@ vertical = int(position[1])
 map[vertical - 1][horizontal - 1] = "X"
 print(f"{row1}\n{row2}\n{row3}")
 
-
-# In[93]:
-
-
+#rock,paper and scissors
 import random
 rock = '''
     _______
@@ -284,7 +281,7 @@ scissors = '''
 user_in = int(input("What will you choose? 0 for rock,1 for paper, 2 for scissors "))
 comp_in = random.randint(0,2)
 
-if user_in < 0 and user_in >3:
+if user_in >= 3 or user_in <0:
     print("Invalid number")
 else:
     game = [rock,paper,scissors]
@@ -295,12 +292,101 @@ else:
       print("You win!")
     elif comp_in == 0 and user_in == 2:
       print("You lose")
-    elif comp_in > user_choice:
+    elif comp_in > user_in:
       print("You lose")
     elif user_in > comp_in:
       print("You win!")
     elif comp_in == user_in:
       print("It's a draw")
+
+
+# In[ ]:
+
+
+#Calculate height
+student_heights = input("Input a list of student heights ").split()
+print(student_heights)
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+  print(student_heights)
+
+total_height = 0
+for height in student_heights:
+  total_height += height
+print(f"total height = {total_height}")
+
+number_of_students = 0
+for student in student_heights:
+  number_of_students += 1
+print(f"number of students = {number_of_students}")
+  
+average_height = round(total_height / number_of_students)
+print(average_height)
+
+#Max student marks
+
+student_scores = input("Input a list of student scores ").split()
+
+for n in range(0,len(student_scores)):
+    student_scores[n]= int(student_scores[n])
+
+highest_score = 0
+for score in student_scores:
+  if score > highest_score:
+    highest_score = score
+    print(highest_score)
+    
+print(f"The highest score in the class is: {highest_score}")
+
+
+# In[75]:
+
+
+#Sum of even number
+sum = 0
+for i in range (2,101,2):
+     sum = sum + i
+print(sum)
+
+#Fuzzbizz
+for i in range (1,101):
+   if i % 3 == 0 and i % 5 == 0:
+    print("Frizzbuzz")
+   elif i % 5 == 0:
+    print("Buzz")
+   elif i % 3 == 0 :
+    print("Frizz")
+   else:
+    print(i)   
+
+
+# In[ ]:
+
+
+#Password generator
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+password = []
+for letter in range(1,nr_letters+1):
+    password += random.choice(letters)
+for number in range(1,nr_symbols+1):
+    password += random.choice(numbers)
+for symbol in range(1,nr_numbers+1):
+    password += random.choice(symbols)
+random.shuffle(password)
+print(password)
+keyword = ""
+for i in password:
+    keyword += i
+
+print(f"Your password is: {keyword}")
 
 
 # In[ ]:
