@@ -300,7 +300,7 @@ else:
       print("It's a draw")
 
 
-# In[ ]:
+# In[130]:
 
 
 #Calculate height
@@ -389,10 +389,52 @@ for i in password:
 print(f"Your password is: {keyword}")
 
 
-# In[ ]:
+# In[131]:
 
 
+#reeborg world
+def turn_left1():
+    turn_left()
+    turn_left()
+    turn_left()
 
+def goal():
+    for i in range(1,7):
+      move()
+      turn_left()
+      move()
+      turn_left1()
+      move()
+      turn_left1()
+      move()
+      turn_left() 
+        
+goal()
+
+#hurdle4
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+def goal():
+    turn_left()
+    while wall_on_right():
+        move()
+    turn_right()
+    move()
+    turn_right()
+        
+    while front_is_clear():
+        move()
+    turn_left()
+        
+while at_goal()!= True:
+        if wall_in_front():
+            goal()
+        elif right_is_clear():
+            move()
+        else:
+            move()
 
 
 # In[ ]:
