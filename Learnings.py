@@ -532,15 +532,73 @@ while not end_of_game:
     print(stages[lives])
 
 
-# In[ ]:
+# In[95]:
+          
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def caesar(start_text, shift_amount, cipher_direction):
+  end_text = ""
+  if cipher_direction == "decode":
+    shift_amount *= -1
+  for char in start_text:
+   
+    if char in alphabet:
+      position = alphabet.index(char)
+      new_position = position + shift_amount
+      end_text += alphabet[new_position]
+    else:
+      end_text += char
+  print(f"Here's the {cipher_direction}d result: {end_text}")
 
 
+from art import logo
+print(logo)
 
+while not should_end:
 
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
 
-# In[ ]:
+  shift = shift % 26
 
+  caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
 
+  restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+  if restart == "no":
+    should_end = True
+    print("Goodbye")
+    
+# In[98]:
+
+from replit import clear
+from art import logo
+print(logo)
+
+bids = {}
+bidding_finished = False
+
+def find_highest_bidder(bidding_record):
+  highest_bid = 0
+  winner = ""
+  
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid: 
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+while not bidding_finished:
+  name = input("What is your name?: ")
+  price = int(input("What is your bid?: $"))
+  bids[name] = price
+  should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+  if should_continue == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+  elif should_continue == "yes":
+    clear()
 
 
 
