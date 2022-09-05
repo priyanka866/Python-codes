@@ -29,7 +29,9 @@ def get_quote():
     url= 'https://api.kanye.rest'
     resp=requests.get(url)
     data = resp.json()
-    return data['quote']
+    quote= data['quote']
+    canvas.itemconfigure(quote_text, text=quote)
+    
    
 window = Tk()
 window.title("Kanye Says...")
@@ -47,3 +49,5 @@ kanye_button.grid(row=1, column=0)
 
 
 window.mainloop()
+
+
